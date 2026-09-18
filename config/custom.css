@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Unblocked Games</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      background: #2563eb;
+      padding: 25px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #dbeafe;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .game-card {
+      background: #1f2937;
+      border-radius: 18px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .game-card h2 {
+      font-size: 28px;
+      margin-top: 0;
+    }
+
+    .game-card p {
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .play-button {
+      border: none;
+      background: #22c55e;
+      color: white;
+      padding: 16px 35px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .play-button:hover {
+      background: #16a34a;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    #status {
+      margin-top: 15px;
+      color: #93c5fd;
+      min-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🎮 My Games</h1>
+    <p>Play browser games</p>
+  </header>
+
+  <main>
+
+    <div class="game-card">
+
+      <h2>🚗⚽ Car Soccer</h2>
+
+      <p>
+        Drive, boost and hit the ball in Car Soccer.
+      </p>
+
+      <button class="play-button" onclick="playCarSoccer()">
+        ▶ PLAY CAR SOCCER
+      </button>
+
+      <div id="status"></div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 My Games
+  </footer>
+
+
+  <script>
+    // ==============================
+    // GAME SETTINGS
+    // ==============================
+
+    const games = {
+      carSoccer: "https://car-soccer.com/"
+    };
+
+
+    // ==============================
+    // PLAY CAR SOCCER
+    // ==============================
+
+    function playCarSoccer() {
+
+      const status = document.getElementById("status");
+
+      status.textContent = "Opening Car Soccer...";
+
+      /*
+        Open the original game in a new browser tab/window.
+
+        Using a normal user click is important because
+        browsers may block automatically-created popups.
+      */
+
+      const gameWindow = window.open(
+        games.carSoccer,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      if (!gameWindow) {
+        status.textContent =
+          "The browser blocked the new window. Allow popups and try again.";
+      } else {
+        status.textContent = "Car Soccer opened!";
+      }
+    }
+
+
+    // ==============================
+    // OPTIONAL KEYBOARD SHORTCUT
+    // ==============================
+
+    document.addEventListener("keydown", function(event) {
+
+      // Press P to launch the game
+      if (
+        event.key.toLowerCase() === "p" &&
+        !["INPUT", "TEXTAREA"].includes(
+          document.activeElement.tagName
+        )
+      ) {
+        playCarSoccer();
+      }
+
+    });
+  </script>
+
+</body>
+</html>
